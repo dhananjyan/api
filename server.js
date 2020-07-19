@@ -10,7 +10,7 @@ mongoose.connection.once('open', () => {
     console.log('DB Connected')
 })
 
-app.use('/graphql', graphqlHTTP({
+app.use('/', graphqlHTTP({
     schema,
     graphiql: true
 }))
