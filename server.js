@@ -10,10 +10,9 @@ mongoose.connection.once('open', () => {
     console.log('DB Connected')
 })
 
-app.use('/', graphqlHTTP({
-    schema,
-    graphiql: true
-}))
+app.get('/', (req, res) => {
+    res.send('Hello World')
+})
 
 app.listen(5000., () => {
     console.log("Server running")
