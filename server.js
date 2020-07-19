@@ -5,11 +5,15 @@ const mongoose = require('mongoose')
 
 const app = express()
 
-
-
-app.get('/', (req, res) => {
-    res.send('Hello World')
+mongoose.connect('mongodb://127.0.0.1:27017/Schedule', { useUnifiedTopology: true, useNewUrlParser: true })
+mongoose.connection.once('open', () => {
+    console.log('DB Connected')
 })
+
+app.use('/graphql', graphqlHTTP({
+    schema,
+    graphiql: true
+}))
 
 app.listen(5000., () => {
     console.log("Server running")
