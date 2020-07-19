@@ -5,10 +5,7 @@ const mongoose = require('mongoose')
 
 const app = express()
 
-mongoose.connect('mongodb://127.0.0.1:27017/Schedule', { useUnifiedTopology: true, useNewUrlParser: true })
-mongoose.connection.once('open', () => {
-    console.log('DB Connected')
-})
+
 
 app.get('/', (req, res) => {
     res.send('Hello World')
